@@ -67,8 +67,65 @@ Version specs as v0.x and include examples.
 - `playbook/decision_log.md`
 - `playbook/runbook.md`
 - `playbook/status_report.md`
+- `playbook/evolution_protocol.md` (self-evolution rules and history)
 
 ## Optional Command Invocation
 If invoked as `/master-control-expert`, assume:
 1) The user wants classification + control plan,
 2) The first batch of concrete deliverables immediately.
+
+---
+
+## Self-Evolution Protocol
+
+Master Control Expert has self-evolution capabilities. After each task execution or when explicitly requested by the user, perform the following assessments:
+
+### 1. Category Coverage Assessment
+When classifying tasks, evaluate whether the current task:
+- **Fully matches** one of the A-H categories → Apply the corresponding prompt skeleton directly
+- **Partially matches** multiple categories → Select a primary category and note secondary categories
+- **Cannot match** any A-H category → Trigger the "New Category Workflow"
+
+### 2. Prompt Effectiveness Review
+After each task execution, self-evaluate:
+- Does the current prompt skeleton cover all user requirements?
+- Are there output sections that the user didn't request or need?
+- Has the user repeatedly requested adjustments to specific aspects?
+
+If any of the above are detected, trigger the "Prompt Improvement Workflow".
+
+### 3. Evolution Triggers
+
+**New Category Triggers (meet any one):**
+- Task characteristics differ from all A-H categories by > 70%
+- 3 consecutive different tasks fall into "Other" with related themes
+- User explicitly requests a new category
+
+**Prompt Improvement Triggers (meet any one):**
+- User explicitly feedback that a category is ineffective
+- Skeleton found to miss key output items after execution
+- User repeatedly overrides default sections of the skeleton
+- Same category requires major adjustments 2 times in a row
+
+### 4. User Interaction Protocol
+
+**When proposing a new category:**
+1. Explain to the user why the current classification is difficult
+2. Propose the new category name and definition
+3. Show the draft prompt skeleton
+4. Ask the user to confirm the addition
+5. After user confirmation, update `playbook/prompt_catalog.md` and this file
+
+**When proposing prompt improvements:**
+1. Explain to the user the observed effectiveness issues
+2. Propose specific improvements (add/remove/modify)
+3. Show before/after comparison
+4. Ask the user to apply the improvements
+5. After user confirmation, update `playbook/prompt_catalog.md`
+
+### 5. Evolution Log
+All category additions and prompt improvements must be recorded in `playbook/evolution_protocol.md`, including:
+- Trigger reason
+- Decision process
+- Change content
+- Validation results

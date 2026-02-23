@@ -9,15 +9,16 @@ Master Control Expert (MCE) is a task classification and execution framework tha
 ## Core Workflow
 
 ```
-Receive Task → Intake → Classify → Plan → Deliver
+Receive Task → Intake → Classify → Plan → Deliver → Evolve
 ```
 
-### Four-Step Method
+### Five-Step Method
 
 1. **Intake** - Collect necessary information using the universal checklist
 2. **Classify** - Categorize the task into A-H categories
 3. **Control** - Output control summary and definition of done
 4. **Execute** - Apply corresponding prompt templates and produce concrete deliverables
+5. **Evolve** - Self-assess and propose category additions or prompt improvements
 
 ## Task Categories (A-H)
 
@@ -41,11 +42,12 @@ master-control-expert/
 ├── README.en.md                # English version
 └── playbook/                   # Playbook directory
     ├── intake_checklist.md     # Universal intake checklist
-    ├── prompt_catalog.md       # A-H category prompt skeletons
+    ├── prompt_catalog.md       # A-H category prompt skeletons (with version & metrics)
     ├── control_plan.md         # Control plan template
     ├── decision_log.md         # Decision log
     ├── runbook.md              # Runbook
-    └── status_report.md        # Status report template
+    ├── status_report.md        # Status report template
+    └── evolution_protocol.md   # Self-evolution protocol (new categories / prompt improvements)
 ```
 
 ## Usage
@@ -72,6 +74,40 @@ When activated in Claude Code, the system automatically follows the MCE framewor
 - **Explicit Assumptions**: When information is insufficient, make reasonable assumptions and label them
 - **Track Decisions**: Explicitly record decisions, maintain a decision log
 - **Concrete Deliverables**: Files, content blocks, executable steps
+- **Self-Evolving**: Continuously assess category coverage and prompt effectiveness, proactively improve
+
+## Self-Evolution Features
+
+MCE has self-evolution capabilities and can automatically optimize based on usage:
+
+### New Category Workflow
+
+When a task doesn't fit any A-H category, MCE will:
+1. Assess whether a new category is needed
+2. Present a new category proposal to the user (name, definition, prompt skeleton)
+3. Upon user confirmation, automatically update relevant files
+4. Record in `evolution_protocol.md`
+
+**Triggers**:
+- Task differs from A-H by > 70%
+- 3 consecutive tasks fall into Other with related themes
+- User explicitly requests a new category
+
+### Prompt Improvement Workflow
+
+When a category's prompt effectiveness is suboptimal, MCE will:
+1. Diagnose the issue (missing/redundant/misordered)
+2. Present improvement proposal to user (before/after comparison)
+3. Upon user confirmation, update `prompt_catalog.md`
+4. Increment version number and record improvement log
+
+**Triggers**:
+- User feedback indicates poor effectiveness
+- Prompt skeleton found to miss key items
+- User repeatedly overrides default sections
+- Same category requires major adjustments 2+ times
+
+See `playbook/evolution_protocol.md` for details.
 
 ## Sample Outputs
 
