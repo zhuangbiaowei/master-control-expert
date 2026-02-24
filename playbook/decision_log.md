@@ -34,3 +34,26 @@
 
 **Approved by:** User request
 **Executed by:** Master Control Expert
+
+## Entry 003: Logic Trap & Brain Teaser Hardening
+**Date:** 2026-02-24
+**Decision:** Strengthen Category A and global rules to explicitly detect logical traps and brain-teaser framing
+**Rationale:**
+1. Existing logic flow lacked explicit trap detection despite handling formal argument structure.
+2. Brain teasers often hinge on wording ambiguity and hidden assumptions rather than classical fallacies.
+3. User explicitly requested better handling for this scenario.
+
+**Implementation:**
+1. Added a mandatory trap-check rule in `SKILL.md`.
+2. Expanded Category A skeleton in `playbook/prompt_catalog.md` with:
+   - Trap Detection
+   - Alternative Interpretation Check
+   - Interpretation-aware final validation
+3. Logged this change in `playbook/evolution_protocol.md`.
+
+**Validation:**
+- Logic tasks now require explicit ambiguity handling before final answer output.
+- The change is backward-compatible with existing A-I category routing.
+
+**Approved by:** User request
+**Executed by:** Master Control Expert

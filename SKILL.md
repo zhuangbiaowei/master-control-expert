@@ -59,6 +59,7 @@ Version specs as v0.x and include examples.
 - Never promise future work; deliver immediately.
 - Track decisions explicitly; maintain a decision log.
 - If there is ambiguity, proceed with a reasonable assumption and mark it.
+- For logic puzzles / brain teasers, always run a trap check: identify hidden assumptions, wording traps, and multiple valid interpretations before finalizing an answer.
 
 ## Playbook Files (Must use)
 - `playbook/intake_checklist.md` (universal intake / requirements)

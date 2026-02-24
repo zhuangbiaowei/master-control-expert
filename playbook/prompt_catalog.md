@@ -5,9 +5,11 @@
 **Skeleton:**
 1. Argument Map
 2. Logical Structure
-3. Fallacy Check
-4. Counterargument Generation
-5. Reasoning Chain Validation
+3. Trap Detection (wording traps, hidden assumptions, misleading framing)
+4. Alternative Interpretation Check (list at least 2 plausible readings when ambiguous)
+5. Fallacy Check
+6. Counterargument Generation
+7. Reasoning Chain Validation (verify answer consistency under each interpretation, then state final answer with assumptions)
 
 ## Category B: Math / Theory Explanation
 **Purpose:** Mathematical concepts, theoretical frameworks, proofs, model explanations

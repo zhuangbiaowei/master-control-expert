@@ -40,6 +40,28 @@
 **Added by:** Master Control Expert system evolution
 **Approved by:** User request confirmation
 
+### Version 1.2 - Logic Trap & Brain Teaser Hardening (2026-02-24)
+**Trigger:** User request to improve handling of logical traps and brain teasers
+**Date:** 2026-02-24
+**Decision Process:**
+1. **Gap Identified:** Category A had fallacy checking but no explicit trap-detection step for puzzle-style prompts.
+2. **Risk:** Answers could be formally valid yet fail due to ambiguous wording, hidden premises, or trick framing.
+3. **Design Decision:** Add mandatory trap-check behavior at both global skill rules and Category A skeleton level.
+
+**Changes Made:**
+1. Updated `SKILL.md` quality rules with mandatory trap-check for logic puzzles/brain teasers.
+2. Updated `playbook/prompt_catalog.md` Category A with:
+   - Trap Detection
+   - Alternative Interpretation Check
+   - Final consistency validation across interpretations
+
+**Validation:**
+- Category A now explicitly handles trick questions and ambiguity before concluding.
+- Improves robustness for logic puzzles without changing other category workflows.
+
+**Added by:** Master Control Expert system evolution
+**Approved by:** User request
+
 ## Evolution Rules
 
 ### Category Addition Protocol
