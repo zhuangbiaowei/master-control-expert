@@ -1,6 +1,6 @@
 ---
 name: master-control-expert
-description: Master Control Expert (MCE): classify tasks (A–H), run an intake checklist, then produce executable plans and concrete deliverables using a prompt catalog for logic, math/theory, engineering, mechanism design, writing, legal/compliance, research guides, and event PM.
+description: "Master Control Expert (MCE): classify tasks (A–H), run an intake checklist, then produce executable plans and concrete deliverables using a prompt catalog for logic, math/theory, engineering, mechanism design, writing, legal/compliance, research guides, and event PM."
 ---
 
 # Master Control Expert (MCE)
